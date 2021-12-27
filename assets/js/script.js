@@ -1,3 +1,12 @@
+// on page load, restore previous session
+displayDate();
+if (!localStorage.event){
+
+}
+else {
+  restorePage();
+}
+
 //store daily tasks and times
 var tasks = {};
  
@@ -23,6 +32,20 @@ function saveDataToLocalStorage(data)
     a = JSON.parse(localStorage.getItem('session')) || [];
     a.push(data);
     localStorage.setItem('session', JSON.stringify(a));
+}
+
+function restorePage() {
+  var test = localStorage.getItem("event");
+  
+}
+
+function displayDate() {
+  var currentDate = new Date();
+  currentDate = moment(currentDate).format("MMM Do YYYY");
+  $("#currentDay.lead").text(currentDate);
+  $("p[id='currentDay']").show();
+
+  var past = currentDate
 }
 
 
